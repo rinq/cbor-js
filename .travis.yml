@@ -1,20 +1,13 @@
 language: node_js
 node_js:
-  - "6"
-before_script:
-  - npm install -g grunt-cli
-script:
-  - npm run-script ci
-env:
-  global:
-    - secure: "UM4h/x6asOBi5D9ieBW3v6TqTwVpFWFopaUH8WQ004xufrLM2BuqhWhldn3x8OdASia7uAzv40G4ApF+nbOdlsdjxqGH18NpsDsdd1aqziZvHbim7UiFwT93fngbPDInd0KI2q3U8ed0M9KtswvlHNAiIMVf8lEPW2B3At4shi8="
-    - secure: "W3FSQ8IISzEjDov8pMaqO8pTJfQ5In/XMa/756ez80GWmdWs71NyxWKaSCm5aebU++P6ULk9+e1/V8Xz+UF+tZpPN+3Fl0y/aiNLQpi2f37WNEAPvGW7Y2+wUdZa74iTC7nmsVWqYFI47ylFyoKbdcrmSpQ3JFi18E1/QdEx77E="
-    - secure: "Uax0duT20upUZWkmiuyhLmf12zJTcjwP1t8E5CLdx3eXBoFebs9fiKqoMV3ImUHLuYG4A34JGDMCWkrY8WYIi2ja8idzNjmDTcMz70U5B0v/ChFEKPUQVnpcM0FAkaHwZsoCrO1XJFnzJkHLLFoKEraUdHpl+ADMg1I+E9iakHM="
+  - node
+cache: yarn
+script: echo Tests disabled.
+before_deploy: yarn version --no-git-tag-version --new-version "$TRAVIS_TAG"
 deploy:
-  provider: releases
-  api_key:
-    secure: VFop18LuK90E6rBK8OCWJDbdd6+IT/whnXlrO9P24nN+QUo/T1IiHQ0l1UdvKa9/4lRSW8b0tW7tkC10B3eP98aOkt8+VuaoblienmIHzpyv9Pm7JSJilVeNnqr73Q97thRlwqHl0s5olE8EFcdpsufv5XFQwJoNqn20K0NXnBs=
-  file: cbor-js.zip
-  skip_cleanup: true
+  provider: npm
   on:
     tags: true
+  email: admin@rinq.io
+  api_key:
+    secure: zJBrHrbm2aZm1e+4jPXdtioBvEQXGJtK0xjOUUcsmrZD6oeafRbiwVZFZQUHXv83rQERPdalonElFVhHEhjBFb+600pvWta6jpWSbf8MMrV8+RVTm6Nt1IYqNV/0wE4smT6xdZGC0k10eo6W10+hKdQTnG2QRjMrTyMi7cvYK0FyzrX5FipQtvMsI4wpZtpn4WqSzHFdci/pfc1/oWiIkd+EF0kfGRV6CPYvqS+iuW7ZLxi2MLzt1S6ITDa+SKbEsmwriDsrpP9mskBCzkt9LVdStjvNhtmSUGEtnshpDe6cUya2xV2FqhvMQl0cBMQFQfeLly396tTGvUOtWdczkUlgVJdW8rK4kP8qvuv8B9FVJuo5mFW6+ke3mF5XUAp5tU2mk/m7JY86jeCTkI1G7Bxfh+bGKq4dcDsebWj5MoCGj75+34inmlg3/mBHVoaMmY1R+9knRvCJGYLDKozQWLdzyeDa1zEo76JVtMcr7oFbY35zAAgPgJD+DVMOrBJjEwMYbLZ123iEWbvnrEdW1RYzqiYYo+9BCIujcNX18FqJvmLVlfQszm0f05jXWWpYsEydSyn4OCao3z780Ddk0t4X7MyBYRnoRq3D3whnVa5INd+xer0Sq0HBuWUeHI4LVRcQHaCZmQeNKgcDpftTURb1QvtWakfJutqpuOtYHa4=
