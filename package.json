@@ -8,6 +8,9 @@
   "homepage": "https://github.com/rinq/cbor-js",
   "bugs": "https://github.com/rinq/cbor-js/issues",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Patrick Gansterer <paroga@paroga.com> (http://paroga.com/)",
   "main": "cbor.js",
   "files": [
